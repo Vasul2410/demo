@@ -16,6 +16,8 @@ namespace demo1.Data
         public DbSet<User> UserTB { get; set; }
         public DbSet<Order> OrderTB { get; set; }
         public DbSet<OrderItem> OrderItemTB { get; set; }
+        public virtual DbSet<Result> Result { get; set; }
+
 
 
         public ApplicationDbContext(IConfiguration configuration)

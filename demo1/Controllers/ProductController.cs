@@ -1,4 +1,4 @@
-﻿using demo1.Migrations;
+﻿
 using demo1.model;
 using demo1.service;
 using demo1.service.Interface;
@@ -157,7 +157,14 @@ namespace demo1.Controllers
             //return json;
             return new JsonResponse(200, true, "success", res);
         }
-
+        [AllowAnonymous]
+        [HttpGet("GetProductWithName-SP")]
+        public JsonResponse GetOrderFromProcedure()
+        {
+            var res = _product.GetOrderFromProcedure();
+            //return json;
+            return new JsonResponse(200, true, "success", res);
+        }
 
         /*
         [HttpGet("GetResultleft")]

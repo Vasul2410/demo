@@ -40,6 +40,9 @@ namespace demo1.service.Interface
         public JsonResponse GetOrder(int OrderId);
         public JsonResponse GetOrder2(int OrderId);
 
+        public JsonResponse GetOrderFromProcedure();
+
+
 
 
 

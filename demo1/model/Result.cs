@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace demo1.model
 {
-    [NotMapped]
     public class Result
     {
+        [Key]
         public int ProductId { get; set; }
 
         public string Name { get; set; }

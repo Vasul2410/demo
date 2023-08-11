@@ -1,11 +1,11 @@
 ﻿using Amazon.Runtime.Internal.Util;
 using AutoMapper;
 using demo1.Data;
-using demo1.Migrations;
 using demo1.model;
 using demo1.service.Interface;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 namespace demo1.service
 {
@@ -410,9 +410,23 @@ namespace demo1.service
                     OrderTotal = g.Key.OrderTotal,
                     OrdItem = g.Select(od => od.OrdItem).ToList()
                 }).FirstOrDefault();
-
+                
 
                 return new JsonResponse(200, true, "Displayed",ord);
+
+            }
+            catch (Exception)
+            {
+                return new JsonResponse(200, false, "Not Found");
+            }
+        }
+
+        public JsonResponse GetOrderFromProcedure()
+        {
+            try
+            {
+                var prod = _dpContext.Result.FromSqlRaw("EXEC GetProductWithCategoryName").ToList();
+                return new JsonResponse(200, true, "Displayed", prod);
 
             }
             catch (Exception)
